@@ -31,7 +31,7 @@ namespace customListTest
             bool actual;
             //act
             customlist.Add(num1);
-            actual = (customlist.capacity = 4);
+            actual = (customlist.capacity == 4);
             //assert
             Assert.AreEqual(expected, actual);
         }
@@ -41,11 +41,41 @@ namespace customListTest
             //arrange
             CustomList<int> customlist = new CustomList<int>();
             int num1 = 5;
-            bool expected = (count == 1);
+            bool expected = true;
             bool actual;
             //act
             customlist.Add(num1);
-            actual = (count == 1);
+            actual = (customlist.count == 1);
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Add_StringToArray_AddToArray()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            string word = "help";
+            bool expected = true;
+            bool actual;
+            //act
+            customlist.Add(word);
+            actual = (customlist.capacity == 4);
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Add_StringToArray2_AddToArray()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            string word = "help";
+            bool expected = true;
+            bool actual;
+            //act
+            customlist.Add(word);
+            actual = (customlist.count == 1);
             //assert
             Assert.AreEqual(expected, actual);
         }
@@ -55,14 +85,37 @@ namespace customListTest
         {
             //arrange
             CustomList<int> customlist = new CustomList<int>();
-            int num1 = 5;
-            bool expected = true;
-            bool actual;
+            int num = 5;
+            int num1 = 6;
+            int expected = 6;
+            int actual;
             //act
+            customlist.Add(num);
             customlist.Add(num1);
-            actual = (customlist.capacity = 4);
+            actual = customlist[1];
             //assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void Add_IntToArray_AddToArray()
+        {
+            //arrange
+            CustomList<int> customlist = new CustomList<int>();
+            int num = 5;
+            bool expected = true;
+            bool actual;
+            //act
+            customlist.Add(num);
+            customlist.Add(num);
+            customlist.Add(num);
+            customlist.Add(num);
+            customlist.Add(num);
+
+            actual = (customlist.capacity == 8);
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+
     }
 }

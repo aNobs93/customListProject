@@ -20,6 +20,11 @@ namespace customList
 
         }
 
+        public void Add(T item)
+        {
+            
+        }
+
 
     }
 }

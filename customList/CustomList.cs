@@ -74,13 +74,15 @@ namespace customList
             int tempCount = count;
             int i;
             int j;
+            bool keyWord = true;
             T[] temp = new T[capacity];
             for (i = 0, j = 0; i < count && j < count; i++, j++ )
             {
-                if (Equals(Items[i], item))
+                if (Equals(Items[i], item) && (Equals(keyWord,true)))
                 {
                     j--;
                     tempCount--;
+                    keyWord = false;
                 }
                 else
                 {

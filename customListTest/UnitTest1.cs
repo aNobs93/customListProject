@@ -200,15 +200,17 @@ namespace customListTest
         }
 
         [TestMethod]
-        public void Remove_AllOfSameIntFromArray_RemoveFromArray()
+        public void Remove_OneOfTheSameIntFromArray_RemoveFromArray()
         {
             //arrange
             CustomList<int> customlist = new CustomList<int>();
             int num = 5;
             int num1 = 6;
-            int expected = 6;
-            int actual;
+            bool expected = true;
+            bool actual;
             //act
+
+
             customlist.Add(num);
             customlist.Add(num);
             customlist.Add(num);
@@ -216,12 +218,7 @@ namespace customListTest
             customlist.Add(num);
             customlist.Add(num1);
             customlist.Remove(5);
-            customlist.Remove(5);
-            customlist.Remove(5);
-            customlist.Remove(5);
-            customlist.Remove(5);
-            customlist.Remove(6);
-            actual = customlist[0];
+            actual = (customlist[4] == 6);
             //assert
             Assert.AreEqual(expected, actual);
         }
@@ -232,14 +229,10 @@ namespace customListTest
             //arrange
             CustomList<int> customlist = new CustomList<int>();
             int num = 5;
-            int num1 = 6;
-            int expected = 1;
-            int actual;
+            bool expected = false;
+            bool actual;
             //act
-            customlist.Add(num);
-            customlist.Add(num1);
-            customlist.Remove(num);
-            actual = customlist.Count;
+            actual = customlist.Remove(num);
             //assert
             Assert.AreEqual(expected, actual);
         }

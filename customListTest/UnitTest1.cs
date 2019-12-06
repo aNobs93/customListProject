@@ -31,7 +31,7 @@ namespace customListTest
             bool actual;
             //act
             customlist.Add(num1);
-            actual = (customlist.capacity == 4);
+            actual = (customlist.Capacity == 4);
             //assert
             Assert.AreEqual(expected, actual);
         }
@@ -45,7 +45,7 @@ namespace customListTest
             bool actual;
             //act
             customlist.Add(num1);
-            actual = (customlist.count == 1);
+            actual = (customlist.Count == 1);
             //assert
             Assert.AreEqual(expected, actual);
         }
@@ -60,7 +60,7 @@ namespace customListTest
             bool actual;
             //act
             customlist.Add(word);
-            actual = (customlist.capacity == 4);
+            actual = (customlist.Capacity == 4);
             //assert
             Assert.AreEqual(expected, actual);
         }
@@ -75,7 +75,7 @@ namespace customListTest
             bool actual;
             //act
             customlist.Add(word);
-            actual = (customlist.count == 1);
+            actual = (customlist.Count == 1);
             //assert
             Assert.AreEqual(expected, actual);
         }
@@ -97,7 +97,7 @@ namespace customListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Add_IntToArray_AddToArray()
+        public void Add_IntToArray5_AddToArray()
         {
             //arrange
             CustomList<int> customlist = new CustomList<int>();
@@ -110,12 +110,39 @@ namespace customListTest
             customlist.Add(num);
             customlist.Add(num);
             customlist.Add(num);
-
-            actual = (customlist.capacity == 8);
+            actual = (customlist.Capacity == 8);
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+        //////////////////////////////////////////////////////
+        [TestMethod]
+        public void Remove_IntFromArray_RemoveFromArray()
+        {
+            //arrange
+            CustomList<int> customlist = new CustomList<int>();
+            int num = 5;
+            bool expected = true;
+            bool actual;
+            //act
+            customlist.Add(num);
+            customlist.Remove(num);
+            actual = (customlist.Count == 0);
             //assert
             Assert.AreEqual(expected, actual);
         }
 
-
+        [TestMethod]
+        public void Remove_IntFromEmptyArray_RemoveFromArray()
+        {
+            //arrange
+            CustomList<int> customlist = new CustomList<int>();
+            int num = 5;
+            bool expected = false;
+            bool actual;
+            //act
+            actual = customlist.Remove(num);
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

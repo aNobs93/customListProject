@@ -55,11 +55,37 @@ namespace customList
 
         public void Add(T item)
         {
+            if(count == capacity)
+            {
+                ResizeArray();
+            }
+            
+            
+           Items[count] = item;
+                //put the thing in
+            
+            count++;
+            
             
         }
 
         public void Remove(T item)
         {
+
+        }
+
+        public void ResizeArray()
+        {
+            T[] temp = new T[capacity *= 2];
+            for (int i = 0; i < count; i++)
+            {
+                temp[i] = Items[i];
+            }
+            Items = temp;
+            //temp array create
+            //move values to temp
+            //resize original
+            //move values back;
 
         }
 

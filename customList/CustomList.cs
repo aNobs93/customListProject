@@ -69,9 +69,29 @@ namespace customList
             
         }
 
-        public void Remove(T item)
+        public bool Remove(T item)
         {
+            int tempCount = count;
+            int i;
+            int j;
+            T[] temp = new T[capacity];
+            for (i = 0, j = 0; i < count && j < count; i++, j++ )
+            {
+                if (Equals(Items[i], item))
+                {
+                    j--;
+                    tempCount--;
+                }
+                else
+                {
+                    temp[j] = Items[i];
+                    
+                }
 
+            }
+            Items = temp;
+            count = tempCount;
+            return true;
         }
 
         public void ResizeArray()
@@ -88,6 +108,24 @@ namespace customList
             //move values back;
 
         }
+
+        //public void RemoveItemFromArray(T item)
+        //{
+        //    T[] temp = new T[capacity];
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        if (Equals(Items[i], item))
+        //        {
+
+        //        }
+        //        else
+        //        {
+        //            temp[i] = Items[i];
+        //        }
+
+        //    }
+        //    Items = temp;
+        //}
 
 
     }

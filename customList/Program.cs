@@ -15,7 +15,12 @@ namespace customList
             custom.Add(1);
             custom.Add(1);
             custom.Add(1);
-            custom.Add(1);
+            custom.Add(5);
+            custom.Remove(1);
+            //custom.Remove(1);
+            //custom.Remove(1);
+            //custom.Remove(1);
+
         }
     }
 }

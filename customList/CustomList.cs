@@ -91,9 +91,16 @@ namespace customList
                 }
 
             }
-            Items = temp;
-            count = tempCount;
-            return true;
+            if (count == 0)
+            {
+                return false;
+            }
+            else
+            {
+                Items = temp;
+                count = tempCount;
+                return true;
+            }
         }
 
         public void ResizeArray()

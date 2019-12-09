@@ -103,9 +103,19 @@ namespace customList
             return temp;
         }
 
-        public void OverloadPlusOperator()
+        public static CustomList<T> operator+ (CustomList<T> list1, CustomList<T> list2)
         {
-
+            CustomList<T> result = new CustomList<T>();
+            for(int i = 0; i < list1.count; i++)
+            {
+                result.Add(list1[i]);
+            }
+            for(int i = 0; i < list2.count; i++)
+            {
+                result.Add(list2[i]);
+            }
+            
+            return result;
         }
 
         public void Zip()

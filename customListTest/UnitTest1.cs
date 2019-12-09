@@ -369,18 +369,19 @@ namespace customListTest
         /////////////////////////////////////////
         //Overload + Operator
         [TestMethod]
-        public void PlusOperator_OverLoadThePlusOperatorWithTwoLists_CombineIntoOneList()
+        public void PlusOperator_OverLoadThePlusOperatorWithTwoListsOfInts_CombineIntoOneList()
         {
             //arrange
             CustomList<int> one = new CustomList<int>();
             CustomList<int> two = new CustomList<int>();
+            CustomList<int> result1 = new CustomList<int>();
             int numOne = 1;
             int numTwo = 2;
             int numThree = 3;
             int numFour = 4;
             int numFive = 5;
             int numSix = 6;
-            string expected = ;
+            string expected = "1 2 3 4 5 6";
             string actual;
             //act
             one.Add(numOne);
@@ -389,7 +390,36 @@ namespace customListTest
             two.Add(numFour);
             two.Add(numFive);
             two.Add(numSix);
-            actual =;
+            result1 = one + two;
+            actual =  result1.ToString();
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void PlusOperator_OverLoadThePlusOperatorWithTwoListsOfStrings_CombineIntoOneList()
+        {
+            //arrange
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+            CustomList<string> result2 = new CustomList<string>();
+            string oneLetter = "A";
+            string twoLetter = "B";
+            string threeLetter = "C";
+            string fourLetter = "D";
+            string fiveLetter = "E";
+            string sixLetter = "F";
+            string expected = "A B C D E F";
+            string actual;
+            //act
+            one.Add(oneLetter);
+            one.Add(twoLetter);
+            one.Add(threeLetter);
+            two.Add(fourLetter);
+            two.Add(fiveLetter);
+            two.Add(sixLetter);
+            result2 = one + two;
+            actual = result2.ToString();
             //assert
             Assert.AreEqual(expected, actual);
         }

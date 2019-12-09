@@ -137,9 +137,9 @@ namespace customList
             return newList;
         }
 
-        public void Zip()
+        public CustomList<T> Zip(CustomList<T> list1)
         {
-
+            return list1;
         }
 
         public bool RemoveFromArrayLoop(T item)

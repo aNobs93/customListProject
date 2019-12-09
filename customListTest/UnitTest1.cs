@@ -262,33 +262,61 @@ namespace customListTest
         }
         /////////////////////////////////////////////////////////
         //Zip_List
-        //[TestMethod]
-        //public void Zip_ListOfIntsTogether_StringTogether()
-        //{
-        //    //arrange
-        //    CustomList<int> odd = new CustomList<int>();
-        //    CustomList<int> even = new CustomList<int>();
-        //    CustomList<int> zipList = new CustomList<int>();
-        //    int numOdd1 = 1;
-        //    int numOdd2 = 3;
-        //    int numOdd3 = 5;
-        //    int numEven1 = 2;
-        //    int numEven2 = 4;
-        //    int numEven3 = 6;
-        //    int expected = 6;
-        //    int actual;
-        //    //act
-        //    odd.Add(numOdd1);
-        //    odd.Add(numOdd2);
-        //    odd.Add(numOdd3);
-        //    even.Add(numEven1);
-        //    even.Add(numEven2);
-        //    even.Add(numEven3);
-        //    odd.Zip(even);
-        //    actual = zipList.Count;
-        //    //assert
-        //    Assert.AreEqual(expected, actual);
-        //}
+        [TestMethod]
+        public void Zip_ListOfIntsTogether_StringTogether()
+        {
+            //arrange
+            CustomList<int> odd = new CustomList<int>();
+            CustomList<int> even = new CustomList<int>();
+            CustomList<int> zipList = new CustomList<int>();
+            int numOdd1 = 1;
+            int numOdd2 = 3;
+            int numOdd3 = 5;
+            int numEven1 = 2;
+            int numEven2 = 4;
+            int numEven3 = 6;
+            int expected = 6;
+            int actual;
+            //act
+            odd.Add(numOdd1);
+            odd.Add(numOdd2);
+            odd.Add(numOdd3);
+            even.Add(numEven1);
+            even.Add(numEven2);
+            even.Add(numEven3);
+            zipList = odd.Zip(even);
+            actual = zipList.Count;
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Zip_ListOfIntsTogetherAndChangeCapacity_StringTogether()
+        {
+            //arrange
+            CustomList<int> odd = new CustomList<int>();
+            CustomList<int> even = new CustomList<int>();
+            CustomList<int> zipList = new CustomList<int>();
+            int numOdd1 = 1;
+            int numOdd2 = 3;
+            int numOdd3 = 5;
+            int numEven1 = 2;
+            int numEven2 = 4;
+            int numEven3 = 6;
+            int expected = 8;
+            int actual;
+            //act
+            odd.Add(numOdd1);
+            odd.Add(numOdd2);
+            odd.Add(numOdd3);
+            even.Add(numEven1);
+            even.Add(numEven2);
+            even.Add(numEven3);
+            zipList = odd.Zip(even);
+            actual = zipList.Capacity;
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
         /////////////////////////////////
         //ToString 
         [TestMethod]

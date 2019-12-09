@@ -261,5 +261,137 @@ namespace customListTest
             Assert.AreEqual(expected, actual);
         }
         /////////////////////////////////////////////////////////
+        //Zip_List
+        //[TestMethod]
+        //public void Zip_ListOfIntsTogether_StringTogether()
+        //{
+        //    //arrange
+        //    CustomList<int> odd = new CustomList<int>();
+        //    CustomList<int> even = new CustomList<int>();
+        //    CustomList<int> zipList = new CustomList<int>();
+        //    int numOdd1 = 1;
+        //    int numOdd2 = 3;
+        //    int numOdd3 = 5;
+        //    int numEven1 = 2;
+        //    int numEven2 = 4;
+        //    int numEven3 = 6;
+        //    int expected = 6;
+        //    int actual;
+        //    //act
+        //    odd.Add(numOdd1);
+        //    odd.Add(numOdd2);
+        //    odd.Add(numOdd3);
+        //    even.Add(numEven1);
+        //    even.Add(numEven2);
+        //    even.Add(numEven3);
+        //    odd.Zip(even);
+        //    actual = zipList.Count;
+        //    //assert
+        //    Assert.AreEqual(expected, actual);
+        //}
+        /////////////////////////////////
+        //ToString 
+        [TestMethod]
+        public void ToString_OverrideString_ReturnListStrung()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            string oneLetter = "A";
+            string twoLetters = "DA";
+            string oneLetterAgain = "M";
+            string expected= "A DA M";
+            string actual;
+            //act
+            customlist.Add(oneLetter);
+            customlist.Add(twoLetters);
+            customlist.Add(oneLetterAgain);
+            actual = customlist.ToString();
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ToString_OverrideToStringOfInts_ReturnListStrung()
+        {
+            //arrange
+            CustomList<int> customlist = new CustomList<int>();
+            int oneNum = 1;
+            int secondNum = 2;
+            int thirdNum = 3;
+            string expected = "1 2 3";
+            string actual;
+            //act
+            customlist.Add(oneNum);
+            customlist.Add(secondNum);
+            customlist.Add(thirdNum);
+            actual = customlist.ToString();
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ToString_OverrideToStringOfIntsOneMoreTime_ReturnListStrung()
+        {
+            //arrange
+            CustomList<int> customlist = new CustomList<int>();
+            int oneNum = 9;
+            int secondNum = 8;
+            int thirdNum = 7;
+            int fourthNum = 6;
+            string expected = "9 8 7 6";
+            string actual;
+            //act
+            customlist.Add(oneNum);
+            customlist.Add(secondNum);
+            customlist.Add(thirdNum);
+            customlist.Add(fourthNum);
+            actual = customlist.ToString();
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ToString_OverrideToStringOfStringsOneMoreTime_ReturnListStrung()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            string oneWord = "Hello";
+            string secondWord = "World";
+            string expected = "Hello World";
+            string actual;
+            //act
+            customlist.Add(oneWord);
+            customlist.Add(secondWord);
+            actual = customlist.ToString();
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+        /////////////////////////////////////////
+        //Overload + Operator
+        [TestMethod]
+        public void PlusOperator_OverLoadThePlusOperatorWithTwoLists_CombineIntoOneList()
+        {
+            //arrange
+            CustomList<int> one = new CustomList<int>();
+            CustomList<int> two = new CustomList<int>();
+            int numOne = 1;
+            int numTwo = 2;
+            int numThree = 3;
+            int numFour = 4;
+            int numFive = 5;
+            int numSix = 6;
+            string expected = ;
+            string actual;
+            //act
+            one.Add(numOne);
+            one.Add(numTwo);
+            one.Add(numThree);
+            two.Add(numFour);
+            two.Add(numFive);
+            two.Add(numSix);
+            actual =;
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

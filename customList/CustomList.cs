@@ -71,36 +71,7 @@ namespace customList
 
         public bool Remove(T item)
         {
-            int tempCount = count;
-            int i;
-            int j;
-            bool keyWord = true;
-            T[] temp = new T[capacity];
-            for (i = 0, j = 0; i < count && j < count; i++, j++ )
-            {
-                if (Equals(Items[i], item) && (Equals(keyWord,true)))
-                {
-                    j--;
-                    tempCount--;
-                    keyWord = false;
-                }
-                else
-                {
-                    temp[j] = Items[i];
-                    
-                }
-
-            }
-            if (count == 0)
-            {
-                return false;
-            }
-            else
-            {
-                Items = temp;
-                count = tempCount;
-                return true;
-            }
+            return RemoveFromArrayLoop(item);           
         }
 
         public void ResizeArray()
@@ -118,23 +89,63 @@ namespace customList
 
         }
 
-        //public void RemoveItemFromArray(T item)
-        //{
-        //    T[] temp = new T[capacity];
-        //    for (int i = 0; i < count; i++)
-        //    {
-        //        if (Equals(Items[i], item))
-        //        {
+        public override string ToString()
+        {
+            string temp = "";
+            for(int i = 0; i < count; i++)
+            { if(i == count - 1)
+                {
+                    temp += Items[i].ToString();
+                }
+            else
+                temp += Items[i].ToString() + " ";
+            }
+            return temp;
+        }
 
-        //        }
-        //        else
-        //        {
-        //            temp[i] = Items[i];
-        //        }
+        public void OverloadPlusOperator()
+        {
 
-        //    }
-        //    Items = temp;
-        //}
+        }
+
+        public void Zip()
+        {
+
+        }
+
+        public bool RemoveFromArrayLoop(T item)
+        {
+            int tempCount = count;
+            int i;
+            int j;
+            bool keyWord = true;
+            T[] temp = new T[capacity];
+            for (i = 0, j = 0; i < count && j < count; i++, j++)
+            {
+                if (Equals(Items[i], item) && (Equals(keyWord, true)))
+                {
+                    j--;
+                    tempCount--;
+                    keyWord = false;
+                }
+                else
+                {
+                    temp[j] = Items[i];
+
+                }
+
+            }
+            if (count == 0)
+            {
+                return false;
+            }
+            else
+            {
+                Items = temp;
+                count = tempCount;
+                return true;
+            }
+        }
 
 
     }

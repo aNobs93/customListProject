@@ -118,6 +118,11 @@ namespace customList
             return result;
         }
 
+        public static CustomList<T> operator- (CustomList<T> list1, CustomList<T> list2)
+        {
+            return false;
+        }
+
         public void Zip()
         {
 

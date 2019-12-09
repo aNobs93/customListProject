@@ -423,5 +423,126 @@ namespace customListTest
             //assert
             Assert.AreEqual(expected, actual);
         }
+        /////////////////////////
+        //Overload - Operator
+        [TestMethod]
+        public void MinusOperator_OverLoadTheMinusOperatorWithTwoListsOfInts_CombineIntoOneList()
+        {
+            //arrange
+            CustomList<int> one = new CustomList<int>();
+            CustomList<int> two = new CustomList<int>();
+            CustomList<int> result1 = new CustomList<int>();
+            int numOne = 1;
+            int numTwo = 3;
+            int numThree = 5;
+            int numFour = 2;
+            int numFive = 1;
+            int numSix = 6;
+            string expected = "3 5";
+            string actual;
+            //act
+            one.Add(numOne);
+            one.Add(numTwo);
+            one.Add(numThree);
+            two.Add(numFour);
+            two.Add(numFive);
+            two.Add(numSix);
+            result1 = one - two;
+            actual = result1.ToString();
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void MinusOperator_OverLoadTheMinusOperatorWithTwoListsOfStrings_CombineIntoOneList()
+        {
+            //arrange
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+            CustomList<string> result1 = new CustomList<string>();
+            string wordOne = "Work";
+            string wordTwo = "School";
+            string expected = "School Work";
+            string actual;
+            //act
+            one.Add(wordOne);
+            one.Add(wordTwo);
+            one.Add(wordOne);
+            two.Add(wordOne);
+            result1 = one - two;
+            actual = result1.ToString();
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void MinusOperator_OverLoadTheMinusOperatorWithTwoListsOfStringsLeavingOnlySchoolInList_CombineIntoOneList()
+        {
+            //arrange
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+            CustomList<string> result1 = new CustomList<string>();
+            string wordOne = "Work";
+            string wordTwo = "School";
+            string expected = "School";
+            string actual;
+            //act
+            one.Add(wordOne);
+            one.Add(wordTwo);
+            one.Add(wordOne);
+            two.Add(wordOne);
+            two.Add(wordOne);
+            result1 = one - two;
+            actual = result1.ToString();
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void MinusOperator_OverLoadTheMinusOperatorWithTwoListsOfStringsWithNothingAddedToSecondString_NothingShouldBeSubtracted()
+        {
+            //arrange
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+            CustomList<string> result1 = new CustomList<string>();
+            string wordOne = "Work";
+            string wordTwo = "School";
+            string expected = "Work School Work";
+            string actual;
+            //act
+            one.Add(wordOne);
+            one.Add(wordTwo);
+            one.Add(wordOne);
+            result1 = one - two;
+            actual = result1.ToString();
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void MinusOperator_OverLoadTheMinusOperatorWithTwoListsOfStringsWithTheFirstListContainingMultipleOfTheSameStrings_OnlySubtractingOneString()
+        {
+            //arrange
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+            CustomList<string> result1 = new CustomList<string>();
+            string wordOne = "Work";
+            string wordTwo = "School";
+            string expected = "School Work Work Work Work Work";
+            string actual;
+            //act
+            one.Add(wordOne);
+            one.Add(wordTwo);
+            one.Add(wordOne);
+            one.Add(wordOne);
+            one.Add(wordOne);
+            one.Add(wordOne);
+            one.Add(wordOne);
+            two.Add(wordOne);
+            result1 = one - two;
+            actual = result1.ToString();
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace customList
 { 
-    public class CustomList<T>
+    public class CustomList<T>  : IEnumerable
     {
         T[] Items;
         int capacity;
@@ -117,10 +118,23 @@ namespace customList
             
             return result;
         }
-
+        private CustomList<T> Copy()
+        {
+            CustomList<T> newList = new CustomList<T>();
+            for (int i = 0; i < count; i++)
+            {
+                newList.Add(Items[i]);
+            }
+            return newList;
+        }
         public static CustomList<T> operator- (CustomList<T> list1, CustomList<T> list2)
         {
-            return false;
+            CustomList<T> newList = list1.Copy();
+            for (int i = 0; i < list2.Count; i++)
+            {
+                newList.Remove(list2[i]);
+            }
+            return newList;
         }
 
         public void Zip()
@@ -161,6 +175,15 @@ namespace customList
                 return true;
             }
         }
+
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < Count; i++)
+            {
+                yield return Items[i];
+            }
+        }
+
 
 
     }

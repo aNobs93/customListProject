@@ -68,7 +68,37 @@ namespace customList
 
         public bool Remove(T item)
         {
-            return RemoveFromArrayLoop(item);           
+
+            int tempCount = count;
+            int i;
+            int j;
+            bool keyWord = true;
+            T[] temp = new T[capacity];
+            for (i = 0, j = 0; i < count && j < count; i++, j++)
+            {
+                if (Equals(Items[i], item) && (Equals(keyWord, true)))
+                {
+                    j--;
+                    tempCount--;
+                    keyWord = false;
+                }
+                else
+                {
+                    temp[j] = Items[i];
+
+                }
+
+            }
+            if (count == 0)
+            {
+                return false;
+            }
+            else
+            {
+                Items = temp;
+                count = tempCount;
+                return true;
+            }
         }
 
         public void ResizeArray()
@@ -166,42 +196,7 @@ namespace customList
             }
 
             return newList;
-        }
-
-        public bool RemoveFromArrayLoop(T item)
-        {
-            int tempCount = count;
-            int i;
-            int j;
-            bool keyWord = true;
-            T[] temp = new T[capacity];
-            for (i = 0, j = 0; i < count && j < count; i++, j++)
-            {
-                if (Equals(Items[i], item) && (Equals(keyWord, true)))
-                {
-                    j--;
-                    tempCount--;
-                    keyWord = false;
-                }
-                else
-                {
-                    temp[j] = Items[i];
-
-                }
-
-            }
-            if (count == 0)
-            {
-                return false;
-            }
-            else
-            {
-                Items = temp;
-                count = tempCount;
-                return true;
-            }
-        }
-
+        }   
         public IEnumerator GetEnumerator()
         {
             for (int i = 0; i < Count; i++)
@@ -219,6 +214,11 @@ namespace customList
                 Remove(Items[j]);
             }
             //return newList;
+        }
+
+        public void RemoveAt(int r1)
+        {
+            Remove(Items[r1]);
         }
 
 

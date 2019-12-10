@@ -285,6 +285,28 @@ namespace customListTest
         }
 
         [TestMethod]
+        public void RemoveRange_RemoveEverythingFromListButLastIndice_RemoveFromArray()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            string firstName = "Adam";
+            string lastName = "Nobs";
+            string herFirstName = "Allison";
+            string herLastName = "Raison";
+            string expected = "Raison";
+            string actual;
+            //act
+            customlist.Add(firstName);
+            customlist.Add(lastName);
+            customlist.Add(herFirstName);
+            customlist.Add(herLastName);
+            customlist.RemoveRange(0, 3);
+            actual = customlist.ToString();
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
         public void RemoveRange_MakeStringCountOne_RemoveFromArray()
         {
             //arrange
@@ -744,6 +766,78 @@ namespace customListTest
             two.Add(wordOne);
             result1 = one - two;
             actual = result1.ToString();
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void RemoveAt_RemoveIndice0_RemoveFromArray()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            string firstName = "Adam";
+            string lastName = "Nobs";
+            string herFirstName = "Allison";
+            string herLastName = "Raison";
+            string expected = "Nobs Allison Raison";
+            string actual;
+            //act
+            customlist.Add(firstName);
+            customlist.Add(lastName);
+            customlist.Add(herFirstName);
+            customlist.Add(herLastName);
+            customlist.RemoveAt(0);
+            actual = customlist.ToString();
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void RemoveAt_RemoveIndice0AndThenRemoveAt0Again_RemoveFromArray()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            string firstName = "Adam";
+            string lastName = "Nobs";
+            string herFirstName = "Allison";
+            string herLastName = "Raison";
+            string expected = "Allison Raison";
+            string actual;
+            //act
+            customlist.Add(firstName);
+            customlist.Add(lastName);
+            customlist.Add(herFirstName);
+            customlist.Add(herLastName);
+            customlist.RemoveAt(0);
+            customlist.RemoveAt(0);
+            actual = customlist.ToString();
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void RemoveAt_RemoveThreeIntsAtRange_RemoveFromArray()
+        {
+            //arrange
+            CustomList<int> customlist = new CustomList<int>();
+            int oneNum = 1;
+            int twoNum = 2;
+            int threeNum = 3;
+            int fourNum = 4;
+            int fiveNum = 5;
+            string expected = "3";
+            string actual;
+            //act
+            customlist.Add(oneNum);
+            customlist.Add(twoNum);
+            customlist.Add(threeNum);
+            customlist.Add(fourNum);
+            customlist.Add(fiveNum);
+            customlist.RemoveAt(0);
+            customlist.RemoveAt(0);
+            customlist.RemoveAt(1);
+            customlist.RemoveAt(1);
+            actual = customlist.ToString();
             //assert
             Assert.AreEqual(expected, actual);
         }

@@ -525,6 +525,62 @@ namespace customListTest
             //assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void PlusOperator_OverLoadThePlusOperatorWithTwoListsOneListWithNothingInIt_CombineIntoOneList()
+        {
+            //arrange
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+            CustomList<string> result2 = new CustomList<string>();
+            string oneLetter = "A";
+            string twoLetter = "B";
+            string threeLetter = "C";
+            string fourLetter = "D";
+            string fiveLetter = "E";
+            string sixLetter = "F";
+            string expected = "A B C D E F";
+            string actual;
+            //act
+            one.Add(oneLetter);
+            one.Add(twoLetter);
+            one.Add(threeLetter);
+            one.Add(fourLetter);
+            one.Add(fiveLetter);
+            one.Add(sixLetter);
+            result2 = one + two;
+            actual = result2.ToString();
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void PlusOperator_OverLoadThePlusOperatorWithTwoListsOneAndCheckIndiceOfLetter_CombineIntoOneList()
+        {
+            //arrange
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+            CustomList<string> result2 = new CustomList<string>();
+            string oneLetter = "A";
+            string twoLetter = "B";
+            string threeLetter = "C";
+            string fourLetter = "D";
+            string fiveLetter = "E";
+            string sixLetter = "F";
+            string expected = "F";
+            string actual;
+            //act
+            one.Add(oneLetter);
+            one.Add(twoLetter);
+            one.Add(threeLetter);
+            two.Add(fourLetter);
+            two.Add(fiveLetter);
+            two.Add(sixLetter);
+            result2 = one + two;
+            actual = result2[5];
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
         /////////////////////////
         //Overload - Operator
         [TestMethod]

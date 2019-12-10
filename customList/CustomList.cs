@@ -164,13 +164,6 @@ namespace customList
 
             }
             }
-            //for(int i = 0; i < newList.Count; i++)
-            //{
-            //    if(newList[i] == null)
-            //    {
-            //        newList.Remove(newList[i]);
-            //    }
-            //}
 
             return newList;
         }

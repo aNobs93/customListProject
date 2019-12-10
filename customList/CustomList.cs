@@ -61,13 +61,9 @@ namespace customList
                 ResizeArray();
             }
             
-            
            Items[count] = item;
-                //put the thing in
             
-            count++;
-            
-            
+            count++;                    
         }
 
         public bool Remove(T item)
@@ -83,11 +79,6 @@ namespace customList
                 temp[i] = Items[i];
             }
             Items = temp;
-            //temp array create
-            //move values to temp
-            //resize original
-            //move values back;
-
         }
 
         public override string ToString()
@@ -137,9 +128,51 @@ namespace customList
             return newList;
         }
 
-        public CustomList<T> Zip(CustomList<T> list1)
+        public CustomList<T> Zip(CustomList<T> list1, CustomList<T> list2)
         {
-            return list1;
+            CustomList<T> newList = new CustomList<T>();
+            if(list1.Count > list2.Count)
+            {
+                for(int i = 0; i < list1.Count; i++)
+                {
+                    if(i < list2.Count)
+                    {
+                    newList.Add(list2[i]);
+                    }
+                    newList.Add(list1[i]);
+                    
+                }
+
+            }else if(list1.Count < list2.Count)
+            {
+                for(int i = 0; i < list2.Count; i++)
+                {
+                    if (i < list1.Count)
+                    {
+                        newList.Add(list1[i]);
+                    }
+                    newList.Add(list2[i]);
+                }
+
+            }
+            else
+            {
+            for (int i = 0, j = 0; i < list1.Count && j < list2.Count; i++, j++)
+            {
+                newList.Add(list1[i]);
+                newList.Add(list2[j]);
+
+            }
+            }
+            //for(int i = 0; i < newList.Count; i++)
+            //{
+            //    if(newList[i] == null)
+            //    {
+            //        newList.Remove(newList[i]);
+            //    }
+            //}
+
+            return newList;
         }
 
         public bool RemoveFromArrayLoop(T item)

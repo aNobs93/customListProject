@@ -284,7 +284,7 @@ namespace customListTest
             even.Add(numEven1);
             even.Add(numEven2);
             even.Add(numEven3);
-            zipList = odd.Zip(even);
+            zipList = zipList.Zip(even, odd);
             actual = zipList.Count;
             //assert
             Assert.AreEqual(expected, actual);
@@ -312,8 +312,82 @@ namespace customListTest
             even.Add(numEven1);
             even.Add(numEven2);
             even.Add(numEven3);
-            zipList = odd.Zip(even);
+            zipList = zipList.Zip(even, odd);
             actual = zipList.Capacity;
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Zip_ListOfStringsTogetherAndFindIndice2_StringTogether()
+        {
+            //arrange
+            CustomList<string> odd = new CustomList<string>();
+            CustomList<string> even = new CustomList<string>();
+            CustomList<string> zipList = new CustomList<string>();
+            string wordOne = "Happy";
+            string wordTwo = "Birthday";
+            string wordThree = "Happy";
+            string wordFour = "NewYear";
+            string expected = "NewYear";
+            string actual;
+            //act
+            odd.Add(wordOne);
+            odd.Add(wordThree);
+            even.Add(wordTwo);
+            even.Add(wordFour);
+            zipList = zipList.Zip(odd, even);
+            actual = zipList[3];
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Zip_ListOfStringsTogetherAndMakeSureCapacityDoubles_StringTogether()
+        {
+            //arrange
+            CustomList<string> odd = new CustomList<string>();
+            CustomList<string> even = new CustomList<string>();
+            CustomList<string> zipList = new CustomList<string>();
+            string wordOne = "Happy";
+            string wordTwo = "Birthday";
+            string wordThree = "Happy";
+            string wordFour = "NewYear";
+            string wordFive = "Yes";
+            string expected = "Yes";
+            string actual;
+            //act
+            odd.Add(wordOne);
+            odd.Add(wordThree);
+            even.Add(wordTwo);
+            even.Add(wordFour);
+            even.Add(wordFive);
+            zipList = zipList.Zip(odd, even);
+            actual = zipList[4];
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Zip_ListOfStringsTogetherWithOneStringEmptyAndTheOtherFull_StringTogether()
+        {
+            //arrange
+            CustomList<string> odd = new CustomList<string>();
+            CustomList<string> even = new CustomList<string>();
+            CustomList<string> zipList = new CustomList<string>();
+            string wordOne = "Happy";
+            string wordTwo = "Birthday";
+            string wordThree = "Happy";
+            string wordFour = "NewYear";
+            string expected = "NewYear";
+            string actual;
+            //act
+            odd.Add(wordOne);
+            odd.Add(wordTwo);
+            odd.Add(wordThree);
+            odd.Add(wordFour);
+            zipList = zipList.Zip(odd, even);
+            actual = zipList[3];
             //assert
             Assert.AreEqual(expected, actual);
         }

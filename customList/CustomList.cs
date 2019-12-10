@@ -11,7 +11,7 @@ namespace customList
     {
         T[] Items;
         int capacity;
-        int count;
+        private int count;
 
         public int Capacity
         {
@@ -221,7 +221,25 @@ namespace customList
             Remove(Items[r1]);
         }
 
+        public void RemoveAll(T item)
+        {
+            //int tempCount = count;
+            
+            for(int i = 0; i < Count; i++)
+            {
+                if (Equals(Items[i], item))
+                {
+                    Remove(Items[i]);
+                    i--;
+                }
+                else
+                {
+                    
+                }
+            }
+         
 
+        }
 
     }
 }

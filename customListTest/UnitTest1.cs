@@ -841,5 +841,72 @@ namespace customListTest
             //assert
             Assert.AreEqual(expected, actual);
         }
+        ////////////////////////////////////////
+        //RemoveAll Method
+        [TestMethod]
+        public void RemoveAll_RemoveAllOnesFromListAndLeaveTheTwo_RemoveFromArray()
+        {
+            //arrange
+            CustomList<int> customlist = new CustomList<int>();
+            int oneNum = 1;
+            int twoNum = 2;
+            string expected = "2";
+            string actual;
+            //act
+            customlist.Add(oneNum);
+            customlist.Add(twoNum);
+            customlist.Add(oneNum);
+            customlist.Add(oneNum);
+            customlist.Add(oneNum);
+            customlist.RemoveAll(1);
+            actual = customlist.ToString();
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void RemoveAll_RemoveAllStringsFromListThatSayAdam_RemoveFromArray()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            string myName = "Adam";
+            string herName = "Allison";
+            int expected = 1;
+            int actual;
+            //act
+            customlist.Add(myName);
+            customlist.Add(myName);
+            customlist.Add(myName);
+            customlist.Add(herName);
+            customlist.Add(myName);
+            customlist.RemoveAll(myName);
+            actual = customlist.Count;
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void RemoveAll_RemoveTheOnlyStringThatSayHelpOutOfFiveStringsInAList_RemoveFromArray()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            string oneWord = "My";
+            string twoWord = "Name";
+            string threeWord = "Is";
+            string fourWord = "Adam";
+            string fiveWord = "Help";
+            int expected = 4;
+            int actual;
+            //act
+            customlist.Add(oneWord);
+            customlist.Add(twoWord);
+            customlist.Add(threeWord);
+            customlist.Add(fourWord);
+            customlist.Add(fiveWord);
+            customlist.RemoveAll(fiveWord);
+            actual = customlist.Count;
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

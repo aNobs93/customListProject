@@ -261,6 +261,51 @@ namespace customListTest
             Assert.AreEqual(expected, actual);
         }
         /////////////////////////////////////////////////////////
+        //RemoveRange
+        [TestMethod]
+        public void RemoveRange_MakeStringRemoveRangeAndLeaveTwoStrings_RemoveFromArray()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            string firstName = "Adam";
+            string lastName = "Nobs";
+            string herFirstName = "Allison";
+            string herLastName = "Raison";
+            string expected = "Adam Raison";
+            string actual;
+            //act
+            customlist.Add(firstName);
+            customlist.Add(lastName);
+            customlist.Add(herFirstName);
+            customlist.Add(herLastName);
+            customlist.RemoveRange(1, 2);
+            actual = customlist.ToString();
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void RemoveRange_MakeStringCountOne_RemoveFromArray()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            string firstName = "Adam";
+            string lastName = "Nobs";
+            string herFirstName = "Allison";
+            string herLastName = "Raison";
+            int expected = 1;
+            int actual;
+            //act
+            customlist.Add(firstName);
+            customlist.Add(lastName);
+            customlist.Add(herFirstName);
+            customlist.Add(herLastName);
+            customlist.RemoveRange(1, 3);
+            actual = customlist.Count;
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+        /////////////////////////////////////////////////////////
         //Zip_List
         [TestMethod]
         public void Zip_ListOfIntsTogether_StringTogether()

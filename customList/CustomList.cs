@@ -210,6 +210,17 @@ namespace customList
             }
         }
 
+        public void RemoveRange(int r1, int r2)
+        {
+            int i;
+            int j;
+            for(i = 0, j = r1; i < r2; i++)
+            {
+                Remove(Items[j]);
+            }
+            //return newList;
+        }
+
 
 
     }

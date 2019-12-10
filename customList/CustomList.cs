@@ -241,5 +241,17 @@ namespace customList
 
         }
 
+        public void Reverse()
+        {
+            int i;
+            int j;
+            T[] temp = new T[capacity];
+            for(i = count -1, j = 0; i >= 0; i--, j++)
+            {
+                temp[j] = Items[i];
+            }
+            Items = temp;
+        }
+
     }
 }

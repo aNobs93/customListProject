@@ -908,5 +908,53 @@ namespace customListTest
             //assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void ReverseList_FlipIndicesAround_ReverseArray()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            string oneWord = "My";
+            string twoWord = "Name";
+            string threeWord = "Is";
+            string fourWord = "Adam";
+            string fiveWord = "Help";
+            string expected = "Help";
+            string actual;
+            //act
+            customlist.Add(oneWord);
+            customlist.Add(twoWord);
+            customlist.Add(threeWord);
+            customlist.Add(fourWord);
+            customlist.Add(fiveWord);
+            customlist.Reverse();
+            actual = customlist[0];
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ReverseList_FlipIndicesAroundAndCheckLastIndice_ReverseArray()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            string oneWord = "My";
+            string twoWord = "Name";
+            string threeWord = "Is";
+            string fourWord = "Adam";
+            string fiveWord = "Help";
+            string expected = "My";
+            string actual;
+            //act
+            customlist.Add(oneWord);
+            customlist.Add(twoWord);
+            customlist.Add(threeWord);
+            customlist.Add(fourWord);
+            customlist.Add(fiveWord);
+            customlist.Reverse();
+            actual = customlist[4];
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

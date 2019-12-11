@@ -956,5 +956,29 @@ namespace customListTest
             //assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void ReverseList_FlipStringOfSingleLetterAroundInList_ReverseArray()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            string oneLetter = "A";
+            string twoLetter = "B";
+            string threeLetter = "C";
+            string fourLetter = "D";
+            string fiveLetter = "E";
+            string expected = "A";
+            string actual;
+            //act
+            customlist.Add(oneLetter);
+            customlist.Add(twoLetter);
+            customlist.Add(threeLetter);
+            customlist.Add(fourLetter);
+            customlist.Add(fiveLetter);
+            customlist.Reverse();
+            actual = customlist[4];
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
